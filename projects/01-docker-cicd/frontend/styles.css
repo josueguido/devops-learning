@@ -1,0 +1,83 @@
+:root {
+  color-scheme: light;
+  font-family: system-ui, sans-serif;
+  color: #172033;
+  background: #f3f6fb;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  width: min(100% - 2rem, 720px);
+  margin: 3rem auto;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+h1 {
+  margin: 0.25rem 0;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+.eyebrow {
+  color: #4559a7;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.intro {
+  color: #536079;
+}
+
+.panel {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  border: 1px solid #dce3ef;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 0.25rem 1rem #1720330b;
+}
+
+.form-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+input,
+button {
+  min-height: 2.75rem;
+  border: 1px solid #c8d1e0;
+  border-radius: 0.4rem;
+  font: inherit;
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 0 0.75rem;
+}
+
+button {
+  padding: 0 1rem;
+  border-color: #344ba0;
+  color: #fff;
+  background: #344ba0;
+  cursor: pointer;
+}
+
+#status[data-state="ok"] {
+  color: #176b3a;
+}
+
+#status[data-state="error"] {
+  color: #a32626;
+}

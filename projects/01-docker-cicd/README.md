@@ -1,10 +1,10 @@
 # Proyecto 1 — Docker + CI/CD
 
-**Estado:** aplicación local disponible; reto DevOps pendiente.
+**Estado:** aplicación local disponible; Compose y workflows de CI configurados, pendientes de validación en GitHub.
 
 ## Objetivo
 
-Partir de una aplicación mínima de tres capas y diseñar, implementar y demostrar su entrega. El código de aplicación está disponible; Docker, CI/CD, análisis de vulnerabilidades, publicación de imágenes y despliegue en una VM quedan como trabajo práctico.
+Partir de una aplicación mínima de tres capas y diseñar, implementar y demostrar su entrega. La aplicación, Docker Compose y los workflows iniciales de CI están disponibles. La revisión de resultados, la publicación de imágenes y el despliegue en una VM siguen siendo parte del reto práctico.
 
 ## Requisitos de la aplicación
 
@@ -26,7 +26,7 @@ En desarrollo, el frontend estático y la API escuchan en puertos diferentes. El
 
 ### Referencia visual
 
-La siguiente imagen sirve como referencia de la arquitectura objetivo con Docker Compose. Es ilustrativa: muestra Node.js, mientras que la aplicación de este proyecto usa Flask; además, Docker Compose todavía forma parte del reto por implementar. El diagrama Mermaid anterior refleja la aplicación actual.
+La siguiente imagen sirve como referencia de una arquitectura con Docker Compose. Es ilustrativa: muestra Node.js, mientras que la aplicación de este proyecto usa Flask. El diagrama Mermaid anterior refleja la aplicación actual.
 
 ![Referencia visual: aplicación de tres capas con Docker Compose, API y PostgreSQL](./docs/assets/three-tier-docker-compose.png)
 
@@ -36,7 +36,8 @@ La siguiente imagen sirve como referencia de la arquitectura objetivo con Docker
 projects/01-docker-cicd/
 ├── backend/
 │   ├── app.py
-│   └── db.py
+│   ├── db.py
+│   └── requirements.txt
 ├── database/
 │   ├── schema.sql
 │   └── seed.sql
@@ -46,7 +47,6 @@ projects/01-docker-cicd/
 │   └── styles.css
 ├── tests/
 │   └── test_app.py
-└── requirements.txt
 ```
 
 ## Ejecutar localmente
@@ -62,7 +62,7 @@ psql postgresql:///devops_learning -f projects/01-docker-cicd/database/seed.sql
 
 python3 -m venv .venv
 source .venv/bin/activate
-python -m pip install -r projects/01-docker-cicd/requirements.txt
+python -m pip install -r projects/01-docker-cicd/backend/requirements.txt
 
 export DATABASE_URL=postgresql:///devops_learning
 PYTHONPATH=projects/01-docker-cicd/backend flask --app app run --port 5000
@@ -116,5 +116,8 @@ Todavía no hay incidentes documentados. Agregá aquí el síntoma, diagnóstico
 
 - La aplicación usa Flask, PostgreSQL y JavaScript sin framework para mantener bajo el ruido de aplicación.
 - El frontend y la API se ejecutan por separado en local para que la comunicación entre servicios sea explícita.
-- No se incluyen archivos de Docker, pipelines, Terraform, Kubernetes o GitOps: construir esa capa es el reto del proyecto.
-- **Evidencias de CI, imágenes y despliegue:** pendientes.
+- Los workflows de CI viven en `.github/workflows/` en la raíz del repositorio para que GitHub Actions los detecte en este monorepo.
+- El CI valida sintaxis JavaScript, lint y pruebas Python; un workflow relacionado construye y escanea las imágenes en pull requests y pushes a `main`.
+- Trivy reporta vulnerabilidades HIGH y CRITICAL sin corrección disponible; por ahora el escaneo es informativo y no bloquea el workflow (`exit-code: "0"`).
+- La publicación de imágenes se ejecuta por separado en pushes a `main` y requiere los secretos `DOCKER_USERNAME` y `DOCKER_PASSWORD` en GitHub Actions.
+- **Evidencias de CI, imágenes publicadas y despliegue:** pendientes de ejecución y verificación en GitHub.

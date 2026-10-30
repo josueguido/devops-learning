@@ -1,17 +1,16 @@
 import logging
 
+import db
 import psycopg
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-
-import db
 
 logger = logging.getLogger(__name__)
 
 
 def create_app():
     app = Flask(__name__)
-    CORS(app, resources={r"/api/*": {"origins": "http://localhost:8080"}})
+    CORS(app, resources={r"/api/*": {"origins": "http://localhost"}})
 
     @app.get("/api/health")
     def health():

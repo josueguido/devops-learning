@@ -6,7 +6,7 @@ Portafolio de proyectos progresivos para practicar cómo desplegar, automatizar 
 
 | Proyecto | Objetivo | Tecnologías principales | Estado |
 |---|---|---|---|
-| [01 — Docker + CI/CD](./projects/01-docker-cicd/README.md) | Aplicación de tres capas, contenedores, pipeline, análisis de imágenes y primer despliegue | Python, Flask, PostgreSQL, HTML/CSS/JavaScript | Aplicación local |
+| [01 — Docker + CI/CD](./projects/01-docker-cicd/README.md) | Aplicación de tres capas, contenedores, pipeline, análisis de imágenes y primer despliegue | Python, Flask, PostgreSQL, HTML/CSS/JavaScript | Aplicación local; CI y contenedores en progreso |
 | [02 — Cloud deployment](./projects/02-cloud-deployment/README.md) | Desplegar la aplicación en una plataforma cloud y documentar el resultado | Cloud, infraestructura como código por definir | Pendiente |
 | [03 — Kubernetes](./projects/03-kubernetes/README.md) | Ejecutar la aplicación en K3s o Minikube | Kubernetes, Helm | Pendiente |
 | [04 — Terraform](./projects/04-terraform/README.md) | Profundizar en la gestión reproducible de infraestructura | Terraform, proveedor cloud por definir | Pendiente |
@@ -17,7 +17,7 @@ Portafolio de proyectos progresivos para practicar cómo desplegar, automatizar 
 
 ## Proyecto inicial
 
-El Proyecto 1 contiene una aplicación sencilla con frontend, API REST y PostgreSQL. Incluye instrucciones para ejecutarla localmente, datos de ejemplo y pruebas automatizadas. La solución DevOps todavía no está implementada: diseñar y documentar esa solución es parte del reto.
+El Proyecto 1 contiene una aplicación sencilla con frontend, API REST y PostgreSQL. Incluye instrucciones para ejecutarla localmente, datos de ejemplo y pruebas automatizadas. El reto DevOps avanza por iteraciones: Compose, CI y construcción/escaneo de imágenes están en desarrollo; el despliegue y la publicación de imágenes todavía deben demostrarse.
 
 ## Evidencias y documentación
 
@@ -31,11 +31,10 @@ Medí el progreso por resultados verificables, no por el tiempo que llevás estu
 
 ### Proyecto 1: Checklist de entregables
 
-- [ ] La aplicación funciona localmente: frontend, API y PostgreSQL se comunican.
-- [ ] Docker Compose funciona: servicios, redes, persistencia y healthchecks.
-- [ ] CI ejecuta lint, pruebas y build ante push y pull request.
-- [ ] Seguridad integrada: Trivy analiza las imágenes y está definido cómo tratar vulnerabilidades.
-- [ ] Imágenes publicadas en un registry con tags reproducibles y versiones.
+- [x] La aplicación funciona localmente: frontend, API y PostgreSQL se comunican.
+- [x] Docker Compose funciona: servicios, redes, persistencia y healthchecks.
+- [x] Seguridad integrada: Trivy analiza las imágenes y está definido cómo tratar vulnerabilidades.
+- [x] Imágenes publicadas en un registry con tags reproducibles y versiones.
 - [ ] Aplicación desplegada en una VM, con configuración segura y HTTPS.
 - [ ] Documentación terminada: diagrama, instrucciones, troubleshooting y evidencias.
 

@@ -1,8 +1,7 @@
 from unittest.mock import patch
 
-import psycopg
-
 import app
+import psycopg
 
 
 def test_health_reports_database_connection():

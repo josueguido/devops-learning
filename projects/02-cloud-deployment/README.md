@@ -22,3 +22,12 @@ La imagen muestra un ejemplo de arquitectura altamente disponible en AWS, con ba
 ## Evidencias
 
 Pendientes. No se han aprovisionado recursos cloud.
+
+
+Proyecto 2 — Cloud + Terraform
+Tomá una aplicación similar y aprovisioná la infraestructura con Terraform.
+- VPC, subnets, security groups y compute.
+- Variables, outputs y estado de Terraform.
+- Configuración del servidor y despliegue automatizado.
+- Gestión segura de secretos y destrucción de recursos al terminar.
+Resultado: infraestructura reproducible, no creada manualmente desde la consola.
